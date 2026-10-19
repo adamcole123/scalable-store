@@ -5,13 +5,15 @@ namespace Store.BasketService.Queries
 {
     public class BasketProvider(IBasketRepository BasketRepository) : IBasketProvider
     {
-        public IEnumerable<BasketDto> GetAll()
+        public BasketDto Get(string basketId)
         {
-            return BasketRepository.Get().Select(x => new BasketDto {
-                Id = x.BasketId,
-                Name = x.Name,
-                Price = x.Price,
-            });
+            var basket = BasketRepository.Get(basketId);
+
+            return new BasketDto()
+            {
+                Id = basket.BasketId,
+                Items = basket.Items,
+            };
         }
     }
 }

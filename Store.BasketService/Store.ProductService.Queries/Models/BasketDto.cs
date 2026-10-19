@@ -9,7 +9,6 @@ namespace Store.BasketService.Queries.Models
     public class BasketDto
     {
         public string Id { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
-        public double Price { get; set; }
+        public string[] Items { get; set; } = [];
     }
 }
